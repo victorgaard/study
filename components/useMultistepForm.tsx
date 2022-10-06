@@ -21,14 +21,20 @@ function useMultistepForm(steps: ReactNode[]) {
     });
   }
 
+  function goTo(index: number) {
+    setCurrentStep(index);
+  }
+
   return {
     steps: steps,
     step: steps[currentStep],
     currentStep: currentStep + 1,
     isFirstStep: currentStep === 0,
-    isLastStep: currentStep === steps.length - 1,
+    isLastStep: currentStep === steps.length - 2,
+    isFinalStep: currentStep === steps.length - 1,
     back,
-    next
+    next,
+    goTo
   };
 }
 

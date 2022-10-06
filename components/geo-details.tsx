@@ -21,6 +21,7 @@ function GeoDetails({ city, state, updateData }: GeoDetailsData) {
         value={city}
         updateData={updateData}
         required={true}
+        autofocus={true}
       />
       <Input
         type="text"

@@ -25,6 +25,7 @@ function PersonalDetails({
         value={firstName}
         updateData={updateData}
         required={true}
+        autofocus={true}
       />
       <Input
         type="text"

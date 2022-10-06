@@ -21,6 +21,7 @@ function AccountDetails({ email, password, updateData }: AccountDetailsData) {
         value={email}
         updateData={updateData}
         required={true}
+        autofocus={true}
       />
       <Input
         type="password"

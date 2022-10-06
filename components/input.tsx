@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type InputProps = {
   type: string;
@@ -7,6 +7,7 @@ type InputProps = {
   label: string;
   error: string;
   required?: boolean;
+  autofocus?: boolean;
   updateData: (newData: any) => void;
 };
 
@@ -17,9 +18,18 @@ function Input({
   label,
   error,
   required,
+  autofocus,
   updateData
 }: InputProps) {
   const [isValid, setIsValid] = useState<boolean | undefined>(undefined);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (autofocus) {
+      inputRef.current?.focus();
+    }
+  }, [inputRef, autofocus]);
+
   return (
     <div>
       <div className="relative">
@@ -34,6 +44,7 @@ function Input({
           placeholder=" "
           required={required}
           autoComplete="off"
+          ref={inputRef}
         />
         <span className="absolute select-none scale-75 left-4 bottom-[1.925rem] pointer-events-none text-slate-300 font-normal peer-focus:scale-75 peer-focus:bottom-[1.925rem] peer-placeholder-shown:scale-[87.5%] peer-placeholder-shown:left-4 peer-placeholder-shown:bottom-[1.15rem] origin-left transition-all">
           {label}
