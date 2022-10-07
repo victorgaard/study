@@ -67,7 +67,7 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-slate-800 sm:bg-slate-900 w-full h-screen flex items-center justify-center">
+      <main className="bg-slate-800 sm:bg-slate-900 w-full h-screen flex items-start sm:items-center justify-center">
         <div className="bg-slate-800 flex flex-col w-full sm:w-[40rem] px-6 py-16 sm:px-16 rounded-lg relative">
           {!isFinalStep && (
             <div className="absolute top-[4.25rem] right-6 sm:right-16 flex justify-end text-slate-400">
@@ -78,8 +78,8 @@ function Home() {
             <div className="flex justify-center items-center">{step}</div>
             <div className="mt-6"></div>
             {!isFinalStep && (
-              <div className="flex flex-col sm:flex-row items-center justify-between">
-                <div className="hidden sm:block sm:w-56 h-4 bg-slate-700 rounded-full overflow-hidden relative">
+              <div className="flex flex-col-reverse gap-6 sm:gap-0 sm:flex-row items-center justify-between">
+                <div className="w-full sm:w-56 h-4 bg-slate-700 rounded-full overflow-hidden relative">
                   <span
                     className="absolute left-0 h-full bg-green-600 text-xs font-medium text-slate-900 flex items-center justify-end pr-2 transition-[width]"
                     style={{ width: `${progressBar()}%` }}
@@ -87,7 +87,6 @@ function Home() {
                     {progressBar()}%
                   </span>
                 </div>
-
                 <div className="flex gap-6 w-full sm:w-auto">
                   {!isFirstStep && (
                     <button
@@ -104,15 +103,6 @@ function Home() {
                   >
                     {isLastStep ? 'Finish' : 'Next'}
                   </button>
-                </div>
-                <div className="sm:hidden mt-12"></div>
-                <div className="sm:hidden w-full h-4 bg-slate-700 rounded-full overflow-hidden relative">
-                  <span
-                    className="absolute left-0 h-full bg-green-600 text-xs font-medium text-slate-900 flex items-center justify-end pr-2 transition-[width]"
-                    style={{ width: `${progressBar()}%` }}
-                  >
-                    {progressBar()}%
-                  </span>
                 </div>
               </div>
             )}
