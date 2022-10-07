@@ -30,8 +30,8 @@ function Home() {
     steps,
     currentStep,
     isFirstStep,
-    isLastStep,
-    isFinalStep,
+    isFinishStep,
+    isLastStap,
     next,
     back
   } = useMultistepForm([
@@ -69,7 +69,7 @@ function Home() {
 
       <main className="bg-slate-800 sm:bg-slate-900 w-full h-screen flex items-start sm:items-center justify-center">
         <div className="bg-slate-800 flex flex-col w-full sm:w-[40rem] px-6 py-16 sm:px-16 rounded-lg relative">
-          {!isFinalStep && (
+          {!isLastStap && (
             <div className="absolute top-[4.25rem] right-6 sm:right-16 flex justify-end text-slate-400">
               {currentStep} / {steps.length}
             </div>
@@ -77,7 +77,7 @@ function Home() {
           <form onSubmit={e => handleSubmit(e)}>
             <div className="flex justify-center items-center">{step}</div>
             <div className="mt-6"></div>
-            {!isFinalStep && (
+            {!isLastStap && (
               <div className="flex flex-col-reverse gap-6 sm:gap-0 sm:flex-row items-center justify-between">
                 <div className="w-full sm:w-56 h-4 bg-slate-700 rounded-full overflow-hidden relative">
                   <span
@@ -101,7 +101,7 @@ function Home() {
                     type="submit"
                     className="w-full px-8 py-4 rounded  bg-blue-700 hover:bg-blue-600 active:bg-blue-700 text-slate-200 transition-colors"
                   >
-                    {isLastStep ? 'Finish' : 'Next'}
+                    {isFinishStep ? 'Finish' : 'Next'}
                   </button>
                 </div>
               </div>

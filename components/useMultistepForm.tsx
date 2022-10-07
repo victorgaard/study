@@ -26,12 +26,12 @@ function useMultistepForm(steps: ReactNode[]) {
   }
 
   return {
-    steps: steps,
     step: steps[currentStep],
+    steps: steps,
     currentStep: currentStep + 1,
     isFirstStep: currentStep === 0,
-    isLastStep: currentStep === steps.length - 2,
-    isFinalStep: currentStep === steps.length - 1,
+    isFinishStep: currentStep === steps.length - 2,
+    isLastStap: currentStep === steps.length - 1,
     back,
     next,
     goTo
